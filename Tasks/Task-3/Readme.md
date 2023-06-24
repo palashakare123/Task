@@ -1,19 +1,37 @@
-# TO check and install Docker and Docker Compose Script
+# LEMP Stack Setup Script
 
-This Bash script checks if Docker and Docker Compose are installed on the system or in virtual machine in cloud and installs them if they are missing.
+This script sets up a LEMP stack (Linux, Nginx, MySQL, PHP) using Docker containers. It creates a Docker Compose file and starts the containers.
 
 ## Installation
 
-1. Clone the repository from github to your local machine or cloud vm where you want docker and docker composeto be downloaded ,run the `docker_docker-compose_install.sh` script to your local machine.
+1. Make sure you have Docker installed on your system.
 
-2. Open a terminal and navigate to the directory where you saved the `docker_docker-compose_install.sh` script.
+2. Clone the repository:
+   git clone <repository name>
 
-3. Make the script executable by running the following command:
-   chmod 777 docker_docker-compose_install.sh
-   
+3. Change into the project directory
+   cd lemp-stack
+
+4. Run the setup script:
+   ./setup-lemp.sh
+
+
 
 ## Usage
 
-To run the script, execute the following command in the terminal from the directory where script is present:
+The following commands are available:
 
-./docker-compose_install.sh
+- `docker-compose up -d`: Starts the LEMP stack containers in the background.
+- `docker-compose down`: Stops and removes the containers.
+
+## Accessing the LEMP Stack
+
+Once the setup is complete and the containers are running, you can access the LEMP stack in your browser:
+
+- URL: http://localhost
+
+## Customization
+
+- Nginx configuration: You can modify the `nginx/default.conf` file to customize Nginx settings.
+- PHP configuration: Modify the `php.ini` file inside the `php` service image to adjust PHP settings.
+- MySQL configuration: Modify the environment variables and volume mappings for the `mysql` service in the Docker Compose file (`docker-compose.yml)
